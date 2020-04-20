@@ -1,0 +1,284 @@
+\documentclass{article}
+
+    % Input language encoding
+    \usepackage[utf8]{inputenc}
+   
+    % Output languages
+    \usepackage[english, greek]{babel}
+    \usepackage{alphabeta}
+    \usepackage{csquotes}
+    
+    % Fonts
+    \usepackage[T1,LGR]{fontenc}
+    \usepackage{lmodern}
+
+    % Images
+    \usepackage{graphicx}
+    \usepackage{float}
+    \usepackage{caption}
+    \usepackage{subcaption}
+
+    % Bibliography 
+    \usepackage{biblatex}
+    
+    % Add animated images
+    \usepackage{animate}
+
+    % Frames
+    \usepackage{framed}
+
+    % Math
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+
+    % Paragraph Formatting
+    \usepackage{parskip}
+
+    % Code
+    \usepackage{listings}
+    \usepackage{fancyvrb}
+
+    % Different Enumerations
+    \usepackage{enumitem}
+
+    % Trees
+    \usepackage{qtree}
+
+    % Other Drawings
+    \usepackage{tikz}
+    \usetikzlibrary{shapes,backgrounds}
+
+    % Links
+    \usepackage{hyperref}
+
+    % Color
+    \usepackage{color}
+   
+    % Setup
+
+    % For hyperlinks
+    \hypersetup{
+        colorlinks=true,
+        linkcolor=blue,
+        filecolor=magenta,      
+        urlcolor=cyan,
+    }
+
+    \urlstyle{same}
+    
+    % For code
+    \definecolor{codegreen}{rgb}{0,0.6,0}
+    \definecolor{codegray}{rgb}{0.5,0.5,0.5}
+    \definecolor{codepurple}{rgb}{0.58,0,0.82}
+    \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+     
+    \lstdefinestyle{mystyle}{
+        backgroundcolor=\color{backcolour},   
+        commentstyle=\color{codegreen},
+        keywordstyle=\color{magenta},
+        numberstyle=\tiny\color{codegray},
+        stringstyle=\color{codepurple},
+        basicstyle=\fontsize{8}{11}\selectfont\ttfamily,
+        breakatwhitespace=false,         
+        breaklines=true,                 
+        captionpos=b,                    
+        keepspaces=true,                 
+        numbers=left,                    
+        numbersep=5pt,                  
+        showspaces=false,                
+        showstringspaces=false,
+        showtabs=false,                  
+        tabsize=4
+    }
+
+    \lstset{style=mystyle}
+
+
+    % For math
+    \DeclareMathSizes{10}{10}{10}{10}
+    \setlength{\parindent}{0cm}
+
+    % Foreign Language macro
+    \newcommand{\english}[1]{\foreignlanguage{english}{{#1}}}
+
+    % Images folder
+    \graphicspath{ {./plots/} }
+
+    % Bibliography source
+    %\addbibresource{report.bib}
+
+
+
+    \title{Στοχαστικές Διαδικασίες \\
+    1ή Θεωρητική Άσκηση}
+
+\begin{document}
+
+\pagenumbering{gobble}
+\date{}
+\author{Λεωνίδας Αβδελάς $|$ ΑΜ: 03113182}
+
+\maketitle
+
+\section*{Άσκηση 4}
+
+Έχουμε τον πίνακα:
+\begin{equation*}
+    P = 
+    \begin{pmatrix}
+    0 & 3/4 & * & 0 & 0\\
+    3/4 & 0 & 0 & 1/8 & *\\
+    1/2 & 1/4 & 1/4 & * & *\\
+    * & 3/5 & 1/5 & 1/5 & *\\
+    0 & 0 & 1/10 & 1/5 & *\\
+    \end{pmatrix}
+\end{equation*}
+
+Για να είναι ο πίνακας πίνακας πιθανοτήτων μετάβασης, θα πρέπει για κάθε $p(i,j)$ να ισχύει $\sum_{j}{p(i,j)} = 1$.
+
+Άρα για την πρώτη γραμμή: $0 + \frac{3}{4} + * + 0 + 0 = 1$, οπότε $* = \frac{1}{4}$.
+
+Για την δεύτερη γραμμή: $\frac{3}{4} + 0 + 0 + \frac{1}{8} + * = 1$, οπότε $* = \frac{1}{8}$.
+
+Για την τρίτη γραμμή: $\frac{1}{2} + \frac{1}{4} + \frac{1}{4} + * + * = 1$, οπότε και για τα δύο $* = 0$.
+
+Για την τέταρτη γραμμή: $* + \frac{3}{5} + \frac{1}{5} + \frac{1}{5} + * = 1$, οπότε και για τα δύο $* = 0$.
+
+Για την πέμπτη γραμμή: $0 + 0 + \frac{1}{10} + \frac{1}{5} + * = 1$, οπότε $* = 7/10$.
+
+\section*{Άσκηση 5}
+
+Δεδομένου ότι ο χώρος καταστάσεων είναι $\mathbb{X} = \{K, B, Σ, Y, M\}$, ο πίνακς πιθανοτήτων μετάβασης θα είναι:
+
+\begin{equation*}
+    P = 
+    \begin{pmatrix}
+        0 & 1/2 & 1/2 & 0 & 0\\
+        1/2 & 0 & 1/2 & 0 & 0\\
+        1/4 & 1/4 & 0 & 1/4 & 1/4\\
+        0 & 0 & 1/2 & 0 & 1/2\\
+        0 & 0 & 1/2 & 1/2 & 0\\
+    \end{pmatrix}
+\end{equation*}
+
+\section*{Άσκηση 6}
+
+Θέλουμε να μοντελοποιήσουμε την θέση του ρήγα, άρα ο χώρος καταστάσεων μας θα είναι $\mathbb{X} = \{Θ_1, Θ_2, Θ_3, Θ_4, Θ_5\}$.
+
+Θα μελετήσουμε την θέση του ρήγα περιγραφικά πρώτα και μετά θα φτιάξουμε τον πίνακα πιθανοτήτων μετάβασης.
+
+Αν είναι στην θέση $Θ_1$, έχει πιθανότητα να βρεθέι στην μέση $2/3$. Ακόμα,με πιθανοτήτα $1/3$ μπορεί να επιλεγεί το χαρτί στην $Θ_5$, οπότε σε αυτή την περίπτωση ο ρήγας μένει στην θέση του.
+
+Αν είναι στην θέση $Θ_2$, το χαρτί στην $Θ_1$ έχει πιθανότητα $2/3$ να επιλεχθεί, οπότε σε αυτή την περίπτωση ο ρήγας θα μετακινηθεί στην $Θ_1$. Αν επιλεχθεί το χαρτί στην $Θ_5$, ο ρήγας μένει στην θέση του.
+
+Αν είναι στην θέση $Θ_3$, το χαρτί στην $Θ_1$ έχει πιθανότητα $2/3$ να επιλεχθεί, οπότε ο ρήγας θα μετακινηθεί στην θέση $Θ_2$ και το χαρτί από την $Θ_1$ θα πάει στην $Θ_3$.  Αν επιλεχθεί το χαρτί στην $Θ_5$, ο ρήγας θα μετακινηθεί στην $Θ_4$ και το χαρτί από την $Θ_5$ θα πάει στην $Θ_3$.
+
+Αν είναι στην θέση $Θ_4$, το χαρτί στην $Θ_1$ έχει πιθανότητα $2/3$ να επιλεχθεί, οπότε σε αυτή την περίπτωση ο ρήγας θα μείνει στην θέση του. Αν επιλεχθεί το χαρτί στην $Θ_5$, ο ρήγας μετακινήται στην $Θ_5$.
+
+Αν είναι στην θέση $Θ_5$, έχει πιθανότητα να βρεθέι στην μέση $1/3$. Ακόμα,με πιθανοτήτα $2/3$ μπορεί να επιλεγεί το χαρτί στην $Θ_1$, οπότε σε αυτή την περίπτωση ο ρήγας μένει στην θέση του.
+
+Τελικά ο πίνακας πιθανοτήτων μετάβασης θα είναι:
+
+\begin{equation*}
+    P = 
+    \begin{pmatrix}
+        1/3 & 0 & 2/3 & 0 & 0\\
+       2/3 & 1/3 & 0 & 0 & 0\\
+        0 & 2/3 & 0 & 1/3 & 0\\
+        0 & 0 & 0 & 2/3 & 1/3\\
+        0 & 0 & 1/3 & 0 & 2/3\\
+    \end{pmatrix}
+\end{equation*}
+
+\section*{Άσκηση 7}
+
+Ο χώρος καταστάσεων είναι $\mathbb{X} = \{0, 1, 2, 3, 4, 5\}$. Θέλουμε να φέρουμε 5 φορές συνεχόμενα 6, οπότε η πιθανότητα να πάμε στην επόμενη κατάσταση κάθε φορά είναι $1/6$, ενώ η πιθανότητα να πάμε στην $0$, είναι $5/6$. Αν φτάσουμε στην κατάσταση $5$, το παιχνίδι τελειώνει, όποτε παραμένουμε στην κατάσταση αυτή.
+
+Άρα ο πίνακας πιθανοτήτων μετάβασης θα είναι:
+
+\begin{equation*}
+    P = 
+    \begin{pmatrix}
+        5/6 & 1/6 & 0 & 0 & 0 & 0\\
+       5/6 & 0 & 1/6 & 0 & 0 & 0\\
+       5/6 & 0 & 0 & 1/6 & 0 & 0\\
+        5/6 & 0 & 0 & 0 & 1/6 & 0\\
+        5/6 & 0 & 0 & 0 & 0 & 1/6\\
+        0 & 0 & 0 & 0 & 0 & 1\\
+    \end{pmatrix}
+\end{equation*}
+
+Στην περίπτωση που θέλουμε να εμφανιστεί η ακολουθία $65656$, θεωρούμε ότι ο χώρος καταστάσεων είναι ο ίδιος και αναπαριστά σε ποιά θέση της ακολουθίας είμαστε.
+
+Τότε κάθε φορά που φέρνουμε 6 ενώ έπρεπε να φέρουμε 5, γυρνάμε στο πρώτο βήμα, ενώ κάθε άλλη φορά στο μηδενικό.
+
+Έτσι, ο πίνακας πιθανοτήτων μετάβασης θα είναι:
+
+\begin{equation*}
+    P = 
+    \begin{pmatrix}
+        5/6 & 1/6 & 0 & 0 & 0 & 0\\
+       4/6 & 1/6 & 1/6 & 0 & 0 & 0\\
+       5/6 & 0 & 0 & 1/6 & 0 & 0\\
+        4/6 & 1/6 & 0 & 0 & 1/6 & 0\\
+        5/6 & 0 & 0 & 0 & 0 & 1/6\\
+        0 & 0 & 0 & 0 & 0 & 1\\
+    \end{pmatrix}
+\end{equation*}
+
+\section*{Άσκηση 8}
+
+Για να είναι η ${X_n}_{n \in \mathbb{N}}$ αλυσίδα \english{Markov}, θα πρέπει να ισχύει ότι για κάθε $n \in \mathbb{N}$ και κάθε $υ_0, \dots, υ_{n-1}, x, y \in \mathbb{X}$ Έχουμε
+\begin{equation*}
+    \Pr{[X_{n+1} = y | X_0 = υ_0, \dots X_{n-1} = υ_{n-1}, X_n = x]} = \Pr{[X_{n+1} = y | X_n = x]}
+\end{equation*}
+
+Πράγματι, εύκολα μπορούμε να δούμε ότι η τιμή του $X_{n+1}$ εξαρτάται μόνο από την τιμή του $X_n$. Ο χώρος καταστάσεων του $X$ είναι$\{0, 1, 2, 3, 4\}$ και κάθε φορά κάνουμε την πράξη: 
+\begin{otherlanguage}{english}
+    \begin{align*}
+        & X_{n+1}  = (S_{n} + \text{dice})\pmod 5 =\\
+        & (S_{n}\pmod 5 + \text{dice} \pmod 5) \pmod 5 = \\
+        & (X_n + (\text{dice}) \pmod 5) \pmod 5
+    \end{align*}
+\end{otherlanguage}
+
+
+όπου \english{dice} είναι το ισοπίθανο γεγονός της ρίψης του ζαριού με χώρο καταστάσεων το $\{1, 2, 3, 4, 5, 6\}$.
+
+Αρα αν $X_n = 0$, τότε ανάλογα με την τιμή της ζαρίας $Z$ έχουμε:
+\begin{itemize}
+    \item $Z=1$, $X_{N+1} = 1$
+    \item $Z=2$, $X_{N+1} = 2$
+    \item $Z=3$, $X_{N+1} = 3$
+    \item $Z=4$, $X_{N+1} = 4$
+    \item $Z=5$, $X_{N+1} = 0$
+    \item $Z=6$, $X_{N+1} = 1$
+\end{itemize}
+
+Ομοίως για $X_n = 1$,
+\begin{itemize}
+    \item $Z=1$, $X_{N+1} = 2$
+    \item $Z=2$, $X_{N+1} = 3$
+    \item $Z=3$, $X_{N+1} = 4$
+    \item $Z=4$, $X_{N+1} = 0$
+    \item $Z=5$, $X_{N+1} = 1$
+    \item $Z=6$, $X_{N+1} = 2$
+\end{itemize}
+
+Παρόμοια γίνεται και για τα υπόλοιπα $X_n$.
+
+Έτσι έχουμε τον πίνακα μεταβάσεων:
+
+
+\begin{equation*}
+    P = 
+    \begin{pmatrix}
+        1/6 & 2/6 & 1/6 & 1/6 & 1/6\\
+        1/6 & 1/6 & 2/6 & 1/6 & 1/6 \\
+        1/6 & 1/6 & 1/6 & 2/6 & 1/6 \\
+        1/6 & 1/6 & 1/6 & 1/6 & 2/6\\
+        2/6 & 1/6 & 1/6 & 1/6 & 1/6
+    \end{pmatrix}
+\end{equation*}
+
+\end{document}
