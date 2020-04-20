@@ -6,3 +6,9 @@ __pycache__
 *.bcf
 *.xml
 *.synctex.gz
+*.blg
+*.aux
+*.fls
+*.out
+*.log
+*.fdb_latexmk
