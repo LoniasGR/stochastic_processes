@@ -1,115 +1,85 @@
-\documentclass{article}
+\documentclass[11pt,a4paper]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INCLUDES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    % Input language encoding
-    \usepackage[utf8]{inputenc}
-   
-    % Output languages
-    \usepackage[english, greek]{babel}
-    \usepackage{alphabeta}
-    \usepackage{csquotes}
-    
-    % Fonts
-    \usepackage[T1,LGR]{fontenc}
-    \usepackage{lmodern}
+% Use a greek font
+\usepackage[T1, LGR]{fontenc}
 
-    % Images
-    \usepackage{graphicx}
-    \usepackage{float}
-    \usepackage{caption}
-    \usepackage{subcaption}
+% Save file in UTF8 encoding
+\usepackage[utf8]{inputenc}
 
-    % Bibliography 
-    \usepackage{biblatex}
-    
-    % Add animated images
-    \usepackage{animate}
+% First greek then english language
+\usepackage[english, greek]{babel}
 
-    % Frames
-    \usepackage{framed}
+% Math stuff
+\usepackage{amsmath}
 
-    % Math
-    \usepackage{amsmath}
-    \usepackage{amssymb}
+% Greek fonts   
+\usepackage{gfsartemisia}
 
-    % Paragraph Formatting
-    \usepackage{parskip}
+% Use greek letters in equations
+\usepackage{alphabeta}
 
-    % Code
-    \usepackage{listings}
-    \usepackage{fancyvrb}
+% Change format of sections
+\usepackage{titlesec}
 
-    % Different Enumerations
-    \usepackage{enumitem}
+% Support for graphics
+\usepackage{graphicx}
 
-    % Trees
-    \usepackage{qtree}
+% Relationships between sections
+\usepackage{chngcntr}
 
-    % Other Drawings
-    \usepackage{tikz}
-    \usetikzlibrary{shapes,backgrounds}
+% Don't ident paragraphs
+\usepackage{parskip}
 
-    % Links
-    \usepackage{hyperref}
+% Links (and accept unicode characters)
+\usepackage[unicode]{hyperref}
 
-    % Color
-    \usepackage{color}
-   
-    % Setup
+% Geometry of paper
+\usepackage{geometry}
 
-    % For hyperlinks
-    \hypersetup{
-        colorlinks=true,
-        linkcolor=blue,
-        filecolor=magenta,      
-        urlcolor=cyan,
-    }
+% Bibliography
+\usepackage{biblatex}
+\usepackage{csquotes}
 
-    \urlstyle{same}
-    
-    % For code
-    \definecolor{codegreen}{rgb}{0,0.6,0}
-    \definecolor{codegray}{rgb}{0.5,0.5,0.5}
-    \definecolor{codepurple}{rgb}{0.58,0,0.82}
-    \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-     
-    \lstdefinestyle{mystyle}{
-        backgroundcolor=\color{backcolour},   
-        commentstyle=\color{codegreen},
-        keywordstyle=\color{magenta},
-        numberstyle=\tiny\color{codegray},
-        stringstyle=\color{codepurple},
-        basicstyle=\fontsize{8}{11}\selectfont\ttfamily,
-        breakatwhitespace=false,         
-        breaklines=true,                 
-        captionpos=b,                    
-        keepspaces=true,                 
-        numbers=left,                    
-        numbersep=5pt,                  
-        showspaces=false,                
-        showstringspaces=false,
-        showtabs=false,                  
-        tabsize=4
-    }
+% Bold in math mode
+\usepackage{bm}
 
-    \lstset{style=mystyle}
+% Tables
+\usepackage{ltablex}
+
+% Used for subfigures
+\usepackage{caption}
+\usepackage{subcaption}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PARAMETERS SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addbibresource{written1.bib}
+
+% Change page margins
+\geometry{a4paper, total={6in, 8in}}
+
+% Artemisia doesn't have bullet points, so use the math one
+\renewcommand\textbullet{\ensuremath{\bullet}}
+
+% Make a macro for changing to english
+\newcommand{\english}[1]{\foreignlanguage{english}{{#1}}}
 
 
-    % For math
-    \DeclareMathSizes{10}{10}{10}{10}
-    \setlength{\parindent}{0cm}
+% Graphics path
+\graphicspath{{../img/}}
 
-    % Foreign Language macro
-    \newcommand{\english}[1]{\foreignlanguage{english}{{#1}}}
+% Colors for links
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
 
-    % Images folder
-    \graphicspath{ {./plots/} }
-
-    % Bibliography source
-    %\addbibresource{report.bib}
-
-
-
-    \title{Στοχαστικές Διαδικασίες \\
+\title{Στοχαστικές Διαδικασίες \\
     1ή Θεωρητική Άσκηση}
 
 \begin{document}
@@ -126,11 +96,11 @@
 \begin{equation*}
     P = 
     \begin{pmatrix}
-    0 & 3/4 & * & 0 & 0\\
-    3/4 & 0 & 0 & 1/8 & *\\
-    1/2 & 1/4 & 1/4 & * & *\\
-    * & 3/5 & 1/5 & 1/5 & *\\
-    0 & 0 & 1/10 & 1/5 & *\\
+        0   & 3/4 & *    & 0   & 0 \\
+        3/4 & 0   & 0    & 1/8 & * \\
+        1/2 & 1/4 & 1/4  & *   & * \\
+        *   & 3/5 & 1/5  & 1/5 & * \\
+        0   & 0   & 1/10 & 1/5 & * \\
     \end{pmatrix}
 \end{equation*}
 
@@ -153,11 +123,11 @@
 \begin{equation*}
     P = 
     \begin{pmatrix}
-        0 & 1/2 & 1/2 & 0 & 0\\
-        1/2 & 0 & 1/2 & 0 & 0\\
-        1/4 & 1/4 & 0 & 1/4 & 1/4\\
-        0 & 0 & 1/2 & 0 & 1/2\\
-        0 & 0 & 1/2 & 1/2 & 0\\
+        0   & 1/2 & 1/2 & 0   & 0   \\
+        1/2 & 0   & 1/2 & 0   & 0   \\
+        1/4 & 1/4 & 0   & 1/4 & 1/4 \\
+        0   & 0   & 1   & 0   & 0   \\
+        0   & 0   & 1   & 0   & 0   \\
     \end{pmatrix}
 \end{equation*}
 
@@ -182,11 +152,11 @@
 \begin{equation*}
     P = 
     \begin{pmatrix}
-        1/3 & 0 & 2/3 & 0 & 0\\
-       2/3 & 1/3 & 0 & 0 & 0\\
-        0 & 2/3 & 0 & 1/3 & 0\\
-        0 & 0 & 0 & 2/3 & 1/3\\
-        0 & 0 & 1/3 & 0 & 2/3\\
+        1/3 & 0   & 2/3 & 0   & 0   \\
+        2/3 & 1/3 & 0   & 0   & 0   \\
+        0   & 2/3 & 0   & 1/3 & 0   \\
+        0   & 0   & 0   & 2/3 & 1/3 \\
+        0   & 0   & 1/3 & 0   & 2/3 \\
     \end{pmatrix}
 \end{equation*}
 
@@ -199,14 +169,17 @@
 \begin{equation*}
     P = 
     \begin{pmatrix}
-        5/6 & 1/6 & 0 & 0 & 0 & 0\\
-       5/6 & 0 & 1/6 & 0 & 0 & 0\\
-       5/6 & 0 & 0 & 1/6 & 0 & 0\\
-        5/6 & 0 & 0 & 0 & 1/6 & 0\\
-        5/6 & 0 & 0 & 0 & 0 & 1/6\\
-        0 & 0 & 0 & 0 & 0 & 1\\
+        5/6 & 1/6 & 0   & 0   & 0   & 0   \\
+        5/6 & 0   & 1/6 & 0   & 0   & 0   \\
+        5/6 & 0   & 0   & 1/6 & 0   & 0   \\
+        5/6 & 0   & 0   & 0   & 1/6 & 0   \\
+        5/6 & 0   & 0   & 0   & 0   & 1/6 \\
+        0   & 0   & 0   & 0   & 0   & 1   \\
     \end{pmatrix}
 \end{equation*}
+
+και οι αρχικές πιθανότητες $π(0) = (1, 0, 0, 0, 0, 0)$.
+
 
 Στην περίπτωση που θέλουμε να εμφανιστεί η ακολουθία $65656$, θεωρούμε ότι ο χώρος καταστάσεων είναι ο ίδιος και αναπαριστά σε ποιά θέση της ακολουθίας είμαστε.
 
@@ -217,14 +190,16 @@
 \begin{equation*}
     P = 
     \begin{pmatrix}
-        5/6 & 1/6 & 0 & 0 & 0 & 0\\
-       4/6 & 1/6 & 1/6 & 0 & 0 & 0\\
-       5/6 & 0 & 0 & 1/6 & 0 & 0\\
-        4/6 & 1/6 & 0 & 0 & 1/6 & 0\\
-        5/6 & 0 & 0 & 0 & 0 & 1/6\\
-        0 & 0 & 0 & 0 & 0 & 1\\
+        5/6 & 1/6 & 0   & 0   & 0   & 0   \\
+        4/6 & 1/6 & 1/6 & 0   & 0   & 0   \\
+        5/6 & 0   & 0   & 1/6 & 0   & 0   \\
+        4/6 & 1/6 & 0   & 0   & 1/6 & 0   \\
+        5/6 & 0   & 0   & 0   & 0   & 1/6 \\
+        0   & 0   & 0   & 0   & 0   & 1   \\
     \end{pmatrix}
 \end{equation*}
+
+και οι αρχικές πιθανότητες $π(0) = (1, 0, 0, 0, 0, 0)$.
 
 \section*{Άσκηση 8}
 
@@ -236,9 +211,9 @@
 Πράγματι, εύκολα μπορούμε να δούμε ότι η τιμή του $X_{n+1}$ εξαρτάται μόνο από την τιμή του $X_n$. Ο χώρος καταστάσεων του $X$ είναι$\{0, 1, 2, 3, 4\}$ και κάθε φορά κάνουμε την πράξη: 
 \begin{otherlanguage}{english}
     \begin{align*}
-        & X_{n+1}  = (S_{n} + \text{dice})\pmod 5 =\\
-        & (S_{n}\pmod 5 + \text{dice} \pmod 5) \pmod 5 = \\
-        & (X_n + (\text{dice}) \pmod 5) \pmod 5
+         & X_{n+1}  = (S_{n} + \text{dice})\pmod 5 =      \\
+         & (S_{n}\pmod 5 + \text{dice} \pmod 5) \pmod 5 = \\
+         & (X_n + (\text{dice}) \pmod 5) \pmod 5
     \end{align*}
 \end{otherlanguage}
 
@@ -273,10 +248,10 @@
 \begin{equation*}
     P = 
     \begin{pmatrix}
-        1/6 & 2/6 & 1/6 & 1/6 & 1/6\\
+        1/6 & 2/6 & 1/6 & 1/6 & 1/6 \\
         1/6 & 1/6 & 2/6 & 1/6 & 1/6 \\
         1/6 & 1/6 & 1/6 & 2/6 & 1/6 \\
-        1/6 & 1/6 & 1/6 & 1/6 & 2/6\\
+        1/6 & 1/6 & 1/6 & 1/6 & 2/6 \\
         2/6 & 1/6 & 1/6 & 1/6 & 1/6
     \end{pmatrix}
 \end{equation*}
@@ -286,56 +261,60 @@
 Ο χώρος καταστάσεων αποτελείται από τις μεταθέσεις των συμβόλων $\{A, B, C\}$, άρα είναι ο:
 
 $$
-\{ABC, ACB, BCA, BAC, CAB, CBA\}
+    \{ABC, ACB, BCA, BAC, CAB, CBA\}
 $$
 
 Για τον πίνακα μεταβάσεων έχουμε:
 \begin{itemize}
     \item Αν επιλέξουμε το βιβλίο Α, έχουμε με πιθανότητα $p$, ότι θα έχουμε τις ακόλουθες μεταβάσεις:
-    \begin{itemize}
-        \item Αν $ABC$, τότε $ABC$.
-        \item Αν $ACB$, τότε $ACB$.
-        \item Αν $BCA$, τότε $ABC$.
-        \item Αν $BAC$, τότε $ABC$.
-        \item Αν $CAB$, τότε $ACB$.
-        \item Αν $CBA$, τότε $ABC$.
-    \end{itemize}
+          \begin{itemize}
+              \item Αν $ABC$, τότε $ABC$.
+              \item Αν $ACB$, τότε $ACB$.
+              \item Αν $BCA$, τότε $ABC$.
+              \item Αν $BAC$, τότε $ABC$.
+              \item Αν $CAB$, τότε $ACB$.
+              \item Αν $CBA$, τότε $ABC$.
+          \end{itemize}
     \item Αν επιλέξουμε το βιβλίο B, έχουμε με πιθανότητα $q$, ότι θα έχουμε τις ακόλουθες μεταβάσεις:
-    \begin{itemize}
-        \item Αν $ABC$, τότε $BAC$.
-        \item Αν $ACB$, τότε $BAC$.
-        \item Αν $BCA$, τότε $BCA$.
-        \item Αν $BAC$, τότε $BAC$.
-        \item Αν $CAB$, τότε $BCA$.
-        \item Αν $CBA$, τότε $BCA$.
-    \end{itemize}
+          \begin{itemize}
+              \item Αν $ABC$, τότε $BAC$.
+              \item Αν $ACB$, τότε $BAC$.
+              \item Αν $BCA$, τότε $BCA$.
+              \item Αν $BAC$, τότε $BAC$.
+              \item Αν $CAB$, τότε $BCA$.
+              \item Αν $CBA$, τότε $BCA$.
+          \end{itemize}
     \item Αν επιλέξουμε το βιβλίο \english{C}, έχουμε με πιθανότητα $r$, ότι θα έχουμε τις ακόλουθες μεταβάσεις:
-    \begin{itemize}
-        \item Αν $ABC$, τότε $CAB$.
-        \item Αν $ACB$, τότε $CAB$.
-        \item Αν $BCA$, τότε $CBA$.
-        \item Αν $BAC$, τότε $CBA$.
-        \item Αν $CAB$, τότε $CAB$.
-        \item Αν $CBA$, τότε $CBA$.
-    \end{itemize}
+          \begin{itemize}
+              \item Αν $ABC$, τότε $CAB$.
+              \item Αν $ACB$, τότε $CAB$.
+              \item Αν $BCA$, τότε $CBA$.
+              \item Αν $BAC$, τότε $CBA$.
+              \item Αν $CAB$, τότε $CAB$.
+              \item Αν $CBA$, τότε $CBA$.
+          \end{itemize}
 \end{itemize}
 
 Τελικά έχουμε τον πίνακα:
 
+$$
+    \{ABC, ACB, BCA, BAC, CAB, CBA\}
+$$
+
 \begin{equation*}
     P = 
     \begin{pmatrix}
-        p & 0 & 0 & q & r & 0\\
-        0 & p & 0 & q & r & 0\\
-        p & 0 & q & 0 & 0 & r\\
-        p & 0 & 0 & q & 0 & r\\
-        0 & p & q & 0 & r & 0\\
+        p & 0 & 0 & q & r & 0 \\
+        0 & p & 0 & q & r & 0 \\
+        p & 0 & q & 0 & 0 & r \\
+        p & 0 & 0 & q & 0 & r \\
+        0 & p & q & 0 & r & 0 \\
         p & 0 & q & 0 & 0 & r
     \end{pmatrix}
 \end{equation*}
 
 \section*{Άσκηση 12}
-Είναι εύκολα αντιληπτό ότι $\Pr(A) + \Pr(B) = 1$, όπου $\Pr(A), \Pr(B)$ η πιθανότητα μετάβασης από το διαμέρισμα Α στο Β και ανάποδα.
+Είναι εύκολα αντιληπτό ότι $\Pr(A) + \Pr(B) = 1$, όπου $\Pr(A)$ η πιθανότητα μετάβασης από το διαμέρισμα Α στο Β και $\Pr(B)$ το ανάποδο.
 
 Αρα αν $n$ τα σωματίδια στο διαμέρισμα Α, τότε έχουμε πιθανότητα $\frac{n}{N}$ να επιλεγεί σωματίδιο από το διαμέρισμα Α και να μεταφερθεί στο Β. 
 
@@ -343,7 +322,7 @@ $$
 
 Στην κατάσταση 0, έχουμε πιθανότητα 1 να μεταφερθούμε στην κατάσταση 1 και στην κατάσταση Ν, έχουμε πιθανότητα 1 να μεταφερθούμε στην $N-1$.
 
-\section*{Άσκηση 13 (Προαιρετική)}
+\section*{Άσκηση 13}
 
 Θα μοντελοποιήσουμε το παιχνίδι με μια ένα χώρο 4 καταστάσεων. Ο χώρος αυτός θα είναι ο $\mathbb{X} = \{A_1, A_2, A_3, T\}$. Το πείραμα μας ξεκινάει από την $A_1$ και αν φέρουμε Κ μεταφέρεται στην $A_2$, αλλιώς παραμένει στην $A_1$. Παρόμοια και για τα άλλα βήματα μέχρι να φτάσουμε στην Τ.
 
@@ -360,21 +339,21 @@ $$
 \begin{equation*}
     P = 
     \begin{pmatrix}
-        1/2 & 1/2 & 0 & 0\\
-        0 & 1/2 & 1/2 & 0\\
-        1/2 & 0 & 0 & 1/2\\
-        0 & 0 & 0 & 1\\
+        1/2 & 1/2 & 0   & 0   \\
+        0   & 1/2 & 1/2 & 0   \\
+        1/2 & 0   & 0   & 1/2 \\
+        0   & 0   & 0   & 1   \\
     \end{pmatrix}
 \end{equation*}
 
-\section*{Άσκηση 14 (Προαιρετική)}
+\section*{Άσκηση 14}
 
 Η ζήτηση ακολουθεί γεωμετρική κατανομή με $p=1/2$. Αυτό σημαίνει ότι σε κάθε βήμα, η πιθανότητα $\Pr(X=n) = p(1-p)^{n-1}$. Στην περίπτωση μας είναι $\Pr(X=n) = (\frac{1}{2})^n$ όπου η τιμή εκφράζει το ποσοστό των διαθέσιμων μπισκότων που θα ζητηθούν. 
 
 Έτσι είναι εύκολο να δείξουμε ότι η διαδικασία είναι μια μαρκοβιανή αλυσίδα, αφού το πλήθος των μπισκότων εξαρτάται μόνο από τα μπισκότα που υπήρχαν το προηγούμενο βράδυ, σύμφωνα με την σχέση:
 
 \begin{equation*}
-    \Pr(X_{n+1} = \Pr(X_n) + 2 - Γ_{n+1} \cdot (\Pr(X_n) + 2)
+    \Pr(X_{n+1}) = \Pr(X_n) + 2 - Γ_{n+1} \cdot (\Pr(X_n) + 2)
 \end{equation*}
 
 όπου Γ η γεωμετρική κατανομή της ζήτησης.
